@@ -72,10 +72,7 @@ public class ItemPedidoDAO {
 							rs.getInt("CD_PEDIDO"),
 							rs.getString("DT_PEDIDO"),
 							rs.getDouble("VL_TOTAL_PEDIDO"),
-							
-							new Pagamento(
-									rs.getInt("CD_PAGAMENTO"), 
-									rs.getString("DS_TIPO_PAG"),
+						
 							new Aluno(
 									rs.getInt("CD_ALUNO"),
 									rs.getString("NM_ALUNO"),
