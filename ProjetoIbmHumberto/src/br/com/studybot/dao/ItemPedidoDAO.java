@@ -6,9 +6,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.studybot.beans.Aluno;
 import br.com.studybot.beans.Aula;
+import br.com.studybot.beans.Curso;
 import br.com.studybot.beans.Disciplina;
 import br.com.studybot.beans.ItemPedido;
+import br.com.studybot.beans.Pagamento;
+import br.com.studybot.beans.Pedido;
 import br.com.studybot.conexao.Conexao;
 
 public class ItemPedidoDAO {
@@ -39,25 +43,70 @@ public class ItemPedidoDAO {
 
 		return "Cadastrado com sucesso";
 	}
+
 	public int excluirItemPedido(ItemPedido item) throws Exception {
 		stmt = con.prepareStatement("DELETE FROM T_STB_ITEM_PEDIDO WHERE CD_ITEM_PEDIDO=?");
-		stmt.setInt(1,item.getCodigo() );
+		stmt.setInt(1, item.getCodigo());
 		return stmt.executeUpdate();
 	}
-	
+
 	public List<ItemPedido>MostrarItems(int codigo)throws Exception{
 		List<ItemPedido>lista=new ArrayList<ItemPedido>();
-		stmt=con.prepareStatement("SELECT * FROM T_STB_ITEM_PEDIDO WHERE CD_ITEM_PEDIDO LIKE ?");
+		stmt=con.prepareStatement("SELECT*FROM T_STB_ITEM_PEDIDO INNER JOIN T_STB_PEDIDO\r\n" + 
+				"ON (t_stb_item_pedido.cd_pedido=t_stb_pedido.cd_pedido)"+
+				"SELECT * FROM T_STB_ITEM_PEDIDO INNER JOIN T_STB_CURSO"+
+				"ON (t_stb_item_pedido.cd_curso=t_stb_curso.cd_curso))"+
+				"SELECT * FROM T_STB_ITEM_PEDIDO INNER JOIN T_STB_PAGAMENTO"+
+				"ON (t_stb_item_pedido.cd_pagamento=t_stb_pagamento.cd_pagamento)");
 		
-		stmt
+		stmt.setInt(1, codigo);
+		rs=stmt.executeQuery();
+		
+		while(rs.next()) {
+			lista.add(new ItemPedido(   
+					rs.getInt("CD_ITEM_PEDIDO"),
+					rs.getDouble("VL_ITEM_PEDIDO"),
+					rs.getInt("NR_ITEM"),
+					rs.getInt("QT_VENDIDA"),
+					new Pedido(
+							rs.getInt("CD_PEDIDO"),
+							rs.getString("DT_PEDIDO"),
+							rs.getDouble("VL_TOTAL_PEDIDO"),
+							
+							new Pagamento(
+									rs.getInt("CD_PAGAMENTO"), 
+									rs.getString("DS_TIPO_PAG"),
+							new Aluno(
+									rs.getInt("CD_ALUNO"),
+									rs.getString("NM_ALUNO"),
+									rs.getString("NM_APELIDO"),
+									rs.getString("NR_RG"),
+									rs.getString("NR_CPF"),
+									rs.getString("DS_EMAIL"),
+									rs.getInt("NR_TELEFONE"),
+									rs.getString("NR_SENHA"),
+									rs.getString("DS_SEXO"),
+									rs.getInt("NR_IDADE"),
+									rs.getString("DT_NASCIMENTO"),
+									rs.getString("DS_HISTORICO"),
+									rs.getString("DS_GRAU_ESCOLARIDADE"),
+									rs.getString("DT_ANO_FORMACAO"),
+							
+					new Curso(
+							rs.getInt("CD_CURSO"),
+							rs.getString("NM_CURSO"),
+							rs.getString("DS_CURSO"),
+							rs.getDouble("VL_CURSO"),
+					new Pagamento(
+							rs.getInt("CD_PAGAMENTO"), 
+							rs.getString("DS_TIPO_PAG"))));
+
+		}
+		
+		return lista;
 		
 		
 		
 	}
-	
-	
-	
-	
 
-	
 }

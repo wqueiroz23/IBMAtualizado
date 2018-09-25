@@ -51,7 +51,12 @@ public class PedidoDAO {
 	public List<Pedido>mostrarPedido(int codigo)throws Exception{
 		
 		List<Pedido>lista=new ArrayList<Pedido>();
-		stmt=con.prepareStatement("SELECT * FROM T_STB_PEDIDO WHERE CD_PEDIDO=?");
+		stmt=con.prepareStatement("SELECT * FROM T_STB_PEDIDO INNER JOIN T_STB_PAGAMENTO \r\n" + 
+				"ON (T_STB_PEDIDO.CD_PAGAMENTO = T_STB_PAGAMENTO.CD_PAGAMENTO)"+
+				"INNER JOIN T_STB_ALUNO"+
+				"ON (T_STB_PEDIDO.CD_ALUNO = T_STB_ALUNO.CD_ALUNO"+
+				"WHERE CD_PEDIDO =?");
+		
 		stmt.setInt(1, codigo);
 		rs=stmt.executeQuery();
 		
@@ -59,7 +64,7 @@ public class PedidoDAO {
 			lista.add(new Pedido(
 					rs.getInt("CD_PEDIDO"),
 					rs.getString("DT_PEDIDO"),
-					rs.getDouble("VLÇ_TOTAL_PEDIDO"),
+					rs.getDouble("VL_TOTAL_PEDIDO"),
 					
 					new Aluno(
 							rs.getInt("CD_ALUNO"),
@@ -80,6 +85,8 @@ public class PedidoDAO {
 			                new Pagamento(
 				          	rs.getInt("CD_PAGAMENTO"), 
 					        rs.getString("DS_TIPO_PAG")))));
+			
+		
 					
 		}
 		

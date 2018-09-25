@@ -17,7 +17,7 @@ public class PedidoBO {
 			
 		}
 		
-		if(objPedido.getAluno().getCdAluno() < 0) {
+		if(objPedido.getAluno().getCodigo() < 0) {
 			return "Codigo aluno invalido";
 		}
 		

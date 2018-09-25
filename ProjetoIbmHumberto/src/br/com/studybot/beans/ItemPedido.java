@@ -11,9 +11,11 @@ public class ItemPedido {
 	
 	
 	
-	
-	
-	public ItemPedido(int codigo, double valor, int numero, int qtVendida, Pedido pedido, Curso curso) {
+	public ItemPedido(int i, double d, int j, int k, Pedido pedido2, Pagamento pagamento2) {
+		super();
+	}
+	public ItemPedido(int codigo, double valor, int numero, int qtVendida, Pedido pedido, Curso curso,
+			Pagamento pagamento) {
 		super();
 		this.codigo = codigo;
 		this.valor = valor;
@@ -21,6 +23,7 @@ public class ItemPedido {
 		this.qtVendida = qtVendida;
 		this.pedido = pedido;
 		this.curso = curso;
+		this.pagamento = pagamento;
 	}
 	public int getCodigo() {
 		return codigo;
@@ -46,10 +49,6 @@ public class ItemPedido {
 	public void setQtVendida(int qtVendida) {
 		this.qtVendida = qtVendida;
 	}
-	public Pagamento getPagamento() {
-		return getPagamento();
-	}
-	
 	public Pedido getPedido() {
 		return pedido;
 	}
@@ -62,6 +61,15 @@ public class ItemPedido {
 	public void setCurso(Curso curso) {
 		this.curso = curso;
 	}
-	
-	
+	public Pagamento getPagamento() {
+		return pagamento;
+	}
+	public void setPagamento(Pagamento pagamento) {
+		this.pagamento = pagamento;
+	}
 }
+	
+	
+	
+	
+	
