@@ -1,7 +1,9 @@
-package br.com.studybot.bo;
+package br.com.studyboot.bo;
 
 
 import br.com.studybot.beans.ItemPedido;
+import br.com.studybot.dao.ItemPedidoDAO;
+import br.com.studybot.dao.PedidoDAO;
 
 /**
  * 
@@ -20,33 +22,33 @@ public class ItemPedidoBO {
 	 * @return
 	 * @throws Exception
 	 * 
-	 * Classe respons√°vel por manipular as regras relacionadas 
+	 * Classe responsavel por manipular as regras relacionadas 
 	 * ao itemPedido
 	 * 
-	 * C√≥digo n√£o pode ser menor que < 0 (getCodigo)
-	 * N√∫mero do pedido n√£o pode ser < 0 (getPedido)
-	 * Valor pedido n√£o pode ser  < 0 (getValor)
-	 * Quantidade de intem vendido n√£o pode ser < 0 
+	 * Codigo n„o pode ser menor que < 0 (getCodigo)
+	 * Numero do pedido n„o pode ser < 0 (getPedido)
+	 * Valor pedido n„o pode ser  < 0 (getValor)
+	 * Quantidade de intem vendido n„o pode ser < 0 
 	 * 
 	 */
 	
 	public static String detalheItemPedido(ItemPedido objPedido) throws Exception{
 		
 		if(objPedido.getCodigo() < 0) {
-			return "C√≥digo invalido";
+			return "Codigo invalido";
 		}
 		if(objPedido.getNumero() < 0) {
-			return "N√∫mero invalido";
+			return "Numero invalido";
 		}
 		if(objPedido.getValor() < 0) {
-			return "Valor n√£o pode ser 0";
+			return "Valor n„o pode ser 0";
 		}
 		if(objPedido.getQtVendida() < 0) {
-			return "A quantidade vendida n√£o pode ser 0";
+			return "A quantidade vendida n„o pode ser 0";
 		}
-		
-		
-		
+		 ItemPedidoDAO dao = new ItemPedidoDAO();
+		 dao.adicionarItem(objPedido);
+		 
 		return null;
 	}
 

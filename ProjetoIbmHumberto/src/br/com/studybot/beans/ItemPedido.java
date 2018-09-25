@@ -11,6 +11,17 @@ public class ItemPedido {
 	
 	
 	
+	
+	
+	public ItemPedido(int codigo, double valor, int numero, int qtVendida, Pedido pedido, Curso curso) {
+		super();
+		this.codigo = codigo;
+		this.valor = valor;
+		this.numero = numero;
+		this.qtVendida = qtVendida;
+		this.pedido = pedido;
+		this.curso = curso;
+	}
 	public int getCodigo() {
 		return codigo;
 	}

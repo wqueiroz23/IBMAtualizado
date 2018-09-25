@@ -37,7 +37,7 @@ public class AulaDAO {
 		stmt.setInt(1, a1.getCodigo());
 		stmt.setString(2, a1.getNome());
 		stmt.setString(3, a1.getDescricao());
-		stmt.setInt(3,a1.getProfessor().getCdProfessor());
+		stmt.setInt(3,a1.getProfessor().getCodigo());
 		stmt.setInt(5, a1.getCurso().getCodigo());
 		stmt.setInt(6, a1.getDisciplina().getCodigo());
 

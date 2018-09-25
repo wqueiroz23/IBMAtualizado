@@ -1,4 +1,4 @@
-package br.com.studybot.bo;
+package br.com.studyboot.bo;
 import br.com.studybot.beans.Disciplina;
 import br.com.studybot.dao.DisciplinaDAO;
 
@@ -20,12 +20,12 @@ public class DisciplinaBO {
 	 */
 	
 	/*
-	 * Classe responsÃ¡vel por manipular as regras relacionadas
+	 * Classe responsavel por manipular as regras relacionadas
 	 * ao cadastro de disciplina
 	 * 
-	 * CÃ³digo da disciplina permitido > 1 (getCodigo)
-	 * Nome disciplina deve ter no mÃ¡ximo 30 caracteres (getNome)
-	 * DescriÃ§Ã£o disciplina deve ter no mÃ¡ximo 40 caracteres 
+	 * Codigo da disciplina permitido > 1 (getCodigo)
+	 * Nome disciplina deve ter no maximo 30 caracteres (getNome)
+	 * Descrição disciplina deve ter no maximo 40 caracteres 
 	 */
 	
 	
@@ -33,16 +33,16 @@ public class DisciplinaBO {
 		
 		
 		if(objDisciplina.getCodigo() <1) {
-			return "CÃ³digo invalido, digite novamente";
+			return "Codigo invalido, digite novamente";
 			
 		}
 		
 		if(objDisciplina.getNome().length() > 30) {
-			return "Digite atÃ© 30 caracteres no nome da disciplina ";
+			return "Digite até 30 caracteres no nome da disciplina ";
 		}
 		
 		if(objDisciplina.getDescricao().length() > 40) {
-			return "Digite atÃ© 40 caracteres na descriÃ§Ã£o ";
+			return "Digite até 40 caracteres na descrição ";
 			
 		}
 		

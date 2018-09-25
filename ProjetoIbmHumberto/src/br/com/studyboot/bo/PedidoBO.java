@@ -1,14 +1,15 @@
-package br.com.studybot.bo;
+package br.com.studyboot.bo;
 
 
 import br.com.studybot.beans.Pedido;
+import br.com.studybot.dao.PedidoDAO;
 
 public class PedidoBO {
 	
 	public static String entradaPedido(Pedido objPedido) throws Exception{
 		
 		if(objPedido.getCodigo() < 1) {
-			return "Código invalido";
+			return "Codigo invalido";
 		}
 		
 		if(objPedido.getData().length() < 10  &&  objPedido.getData().length() > 10) {
@@ -23,7 +24,9 @@ public class PedidoBO {
 		if(objPedido.getValor() < 0) {
 			return "Valor invalido";
 		}
-		
+		PedidoDAO dao = new PedidoDAO();
+		dao.adicionar(objPedido);
+		dao.fechar();
 		
 		return null;
 	}

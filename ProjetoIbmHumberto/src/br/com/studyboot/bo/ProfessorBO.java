@@ -1,4 +1,4 @@
-package br.com.studybot.bo;
+package br.com.studyboot.bo;
 
 import br.com.studybot.beans.Professor;
 import br.com.studybot.dao.ProfessorDAO;
@@ -30,9 +30,9 @@ public class ProfessorBO {
 	 */
 	public static String novoProfessor(Professor objProfessor) throws Exception{
 		
-		if(objProfessor.getCdProfessor() < 1) {
+		if(objProfessor.getCodigo() < 1) {
 			
-			return "código invalido";
+			return "codigo invalido";
 			
 		}
 		
@@ -41,15 +41,15 @@ public class ProfessorBO {
 		}
 		
 		if(objProfessor.getApelido().equals(null) || objProfessor.getApelido().length()< 5) {
-			return " Digite um apelido com no mínimo que 5 carácteres";
+			return " Digite um apelido com no minimo que 5 caracteres";
 		}
 		
 		if(objProfessor.getCpf().length() <= 11) {
-			return "Preencha os 11 número do CPF";			
+			return "Preencha os 11 numero do CPF";			
 		}
 		
 		if(objProfessor.getRg().length() < 9) {
-			return "Preencha os 9 números do seu RG ";
+			return "Preencha os 9 numeros do seu RG ";
 		}
 		if(objProfessor.getEmail().indexOf("@") <= 2 || objProfessor.getEmail().indexOf(".")<= 3 || objProfessor.getEmail().length()>25) {
 			
@@ -62,24 +62,22 @@ public class ProfessorBO {
 		}
 		
 		if(objProfessor.getSenha().length() < 6 ){
-			 return " Sua senha deve ter no minímo 6 caracteres ";	
+			 return " Sua senha deve ter no minimo 6 caracteres ";	
 		}
 		
-		if(objProfessor.getTelefone() < 10) {
+		if(objProfessor.getTelefone().length() < 10) {
 			return "Digite o DDD com 2 digitos e mais os 8 digitos do seu telefone";
 			
 		}
 		
-		if(objProfessor.getComprovanteFormacao().length() <5) {
+		if(objProfessor.getComprovantePagamento().length()<30) {
 			 
-			return "Digite o 5 código de seu comprovante de formação";
+			return "Digite o 5 codigo de seu comprovante de forma��o";
 		}
 				
 		ProfessorDAO dao = new ProfessorDAO();
 		dao.addProfessor(objProfessor);
 		dao.fechar();
-		
-		
 		return  "Gravado com sucesso";
 		
 	}

@@ -23,7 +23,7 @@ public class ProfessorDAO {
 	public String addProfessor(Professor pro) throws Exception {
 		PreparedStatement stmt = con.prepareStatement("INSERT INTO T_STB_PROFESSOR VALUES(?,?,?,?,?,?,?,?,?,?,?)");
 
-		stmt.setInt(1, pro.getCdProfessor());
+		stmt.setInt(1, pro.getCodigo());
 		stmt.setString(2, pro.getNome());
 		stmt.setString(3, pro.getApelido());
 		stmt.setString(4, pro.getRg());
@@ -38,11 +38,13 @@ public class ProfessorDAO {
 
 		return "Adicionado";
 	}
+	
+	
 
 	public int excluirProfessor(Professor pro) throws Exception {
 
 		PreparedStatement stmt = con.prepareStatement("DELETE FROM T_STB_PROFESSOR WHERE CD_PROFESSOR=?");
-		stmt.setInt(1, pro.getCdProfessor());
+		stmt.setInt(1, pro.getCodigo());
 		return stmt.executeUpdate();
 	}
 

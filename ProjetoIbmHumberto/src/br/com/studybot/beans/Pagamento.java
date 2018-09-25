@@ -4,6 +4,14 @@ public class Pagamento {
 	private int codigo;
 	private String descricao;
 	
+	public Pagamento() {
+		super();
+	}
+	public Pagamento(int codigo, String descricao) {
+		super();
+		this.codigo = codigo;
+		this.descricao = descricao;
+	}
 	public int getCodigo() {
 		return codigo;
 	}

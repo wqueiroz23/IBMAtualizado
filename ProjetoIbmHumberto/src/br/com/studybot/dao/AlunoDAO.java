@@ -23,7 +23,7 @@ public class AlunoDAO {
 		stmt.setString(1, aluno.getHistorico());
 		stmt.setString(2, aluno.getGrauEscolaridade());
 		stmt.setString(3, aluno.getDataFormacao());
-		stmt.setInt(4, aluno.getCdAluno());
+		stmt.setInt(4, aluno.getCodigo());
 		stmt.setString(5, aluno.getNome());
 		stmt.setString(6, aluno.getApelido());
 		stmt.setString(7, aluno.getRg());
@@ -42,7 +42,7 @@ public class AlunoDAO {
 		
 		public int excluirAluno(Aluno aluno)throws Exception {
 			stmt = con.prepareStatement("DELETE FROM T_STB_ALUNO WHERE CD_ALUNO=?");
-			stmt.setInt(1, aluno.getCdAluno());
+			stmt.setInt(1, aluno.getCodigo());
 			return stmt.executeUpdate();
 		}
 		

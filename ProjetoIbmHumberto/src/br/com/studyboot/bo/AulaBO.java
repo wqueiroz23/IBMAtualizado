@@ -1,4 +1,4 @@
-package br.com.studybot.bo;
+package br.com.studyboot.bo;
 
 import java.util.List;
 
@@ -19,21 +19,21 @@ public class AulaBO {
 	 * @return
 	 * @throws Exception
 	 * 
-	 *                   Classe responsável por manipular as regras relacionadas ao
-	 *                   cadastro de Aula
+	 *  Classe responsavel por manipular as regras relacionadas ao
+	 *  cadastro de Aula
 	 * 
 	 */
 
 	public static String cadastroAula(Aula objAula) throws Exception {
 
 		if (objAula.getCodigo() < 1) {
-			return " Código invalido";
+			return " Codigo invalido";
 		}
 		if (objAula.getNome().length() < 1) {
 			return "Nome invalido";
 		}
 		if (objAula.getDescricao().length() > 30) {
-			return "Descrição deve ter apenas 30 caracter ";
+			return "Descri��o deve ter apenas 30 caracter ";
 		}
 
 		AulaDAO dao = new AulaDAO();

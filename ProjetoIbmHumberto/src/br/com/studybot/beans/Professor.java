@@ -51,79 +51,174 @@ public class Professor {
 
 	}
 
-	public int getCdProfessor() {
+
+
+
+	public int getCodigo() {
 		return codigo;
 	}
-	public void setCdProfessor(int cdProfessor) {
-		this.codigo = cdProfessor;
+
+
+
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
+
+
+
+
 	public String getNome() {
 		return nome;
 	}
+
+
+
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+
+
+
 	public String getApelido() {
 		return apelido;
 	}
+
+
+
+
 	public void setApelido(String apelido) {
 		this.apelido = apelido;
 	}
+
+
+
+
 	public String getRg() {
 		return rg;
 	}
+
+
+
+
 	public void setRg(String rg) {
 		this.rg = rg;
 	}
+
+
+
+
 	public String getCpf() {
 		return cpf;
 	}
+
+
+
+
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+
+
+
+
 	public String getEmail() {
 		return email;
 	}
+
+
+
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
+
+
 	public String getTelefone() {
 		return telefone;
 	}
+
+
+
+
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+
+
+
+
 	public String getSenha() {
 		return senha;
 	}
+
+
+
+
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+
+
+
 	public String getSexo() {
 		return sexo;
 	}
+
+
+
+
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
+
+
+
+
 	public int getIdade() {
 		return idade;
 	}
+
+
+
+
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
+
+
+
+
 	public String getComprovantePagamento() {
 		return comprovantePagamento;
 	}
+
+
+
+
 	public void setComprovantePagamento(String comprovantePagamento) {
 		this.comprovantePagamento = comprovantePagamento;
 	}
+
+
+
+
 	public String getDataNascimento() {
 		return dataNascimento;
 	}
+
+
+
+
 	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-	
-	
+
+
 		
 }

@@ -3,7 +3,11 @@ package br.com.studybot.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
+import br.com.studybot.beans.Aula;
+import br.com.studybot.beans.Disciplina;
 import br.com.studybot.beans.ItemPedido;
 import br.com.studybot.conexao.Conexao;
 
@@ -35,5 +39,25 @@ public class ItemPedidoDAO {
 
 		return "Cadastrado com sucesso";
 	}
+	public int excluirItemPedido(ItemPedido item) throws Exception {
+		stmt = con.prepareStatement("DELETE FROM T_STB_ITEM_PEDIDO WHERE CD_ITEM_PEDIDO=?");
+		stmt.setInt(1,item.getCodigo() );
+		return stmt.executeUpdate();
+	}
+	
+	public List<ItemPedido>MostrarItems(int codigo)throws Exception{
+		List<ItemPedido>lista=new ArrayList<ItemPedido>();
+		stmt=con.prepareStatement("SELECT * FROM T_STB_ITEM_PEDIDO WHERE CD_ITEM_PEDIDO LIKE ?");
+		
+		stmt
+		
+		
+		
+	}
+	
+	
+	
+	
 
+	
 }
